@@ -17,3 +17,21 @@ body {
 .anecdote {
     padding: 10px 0;
 }
+
+.filter {
+    margin: 20px 0 10px 0;
+}
+
+input {
+    padding: 0 3px;
+}
+
+button {
+    padding: 0 3px;
+    margin-left: 5px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+}

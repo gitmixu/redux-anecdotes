@@ -13,7 +13,7 @@ const NewAnecdote = () => {
 
   return (
     <form onSubmit={addAnecdote}>
-      <input name="anecdote" />
+      new <input name="anecdote" />
       <button type="submit">add</button>
     </form>
   )

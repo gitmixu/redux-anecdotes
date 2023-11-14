@@ -1,4 +1,17 @@
-const anecdoteReducer = (state = [], action) => {
+const initialState = [
+  {
+    content: 'reducer defines how redux store works',
+    votes: 3,
+    id: 1,
+  },
+  {
+    content: 'state of store can contain any data',
+    votes: 1,
+    id: 2,
+  },
+]
+
+const anecdoteReducer = (state = /* [] */initialState, action) => {
   switch(action.type) {
     case 'NEW_ANECDOTE':
       return [...state, action.payload]
