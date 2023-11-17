@@ -4,27 +4,31 @@ import { handleVote } from '../reducers/anecdoteReducer'
 const Anecdote = ({ anecdote, handleClick }) => {
     return(
         <li>
-          {anecdote.content} {anecdote.votes}<button onClick={handleClick}>vote</button>
+          { anecdote.content } { anecdote.votes }<button onClick={ handleClick }>vote</button>
         </li>
       )
     }
 
 const Anecdotes = () => {
   const dispatch = useDispatch()
-  const anecdotes = useSelector(state => {
-    if (state.filter === '') { return state.anecdotes }
-    else { return state.anecdotes.filter((anecdote) => anecdote.content.includes(state.filter))}
-  })
-  
-  anecdotes.sort((a, b) => b.votes - a.votes)
-  
+  const anecdotes = useSelector(({ filter, anecdotes }) => {
+    if ( filter === '' ) { return anecdotes }
+    return anecdotes.filter(( anecdote ) => anecdote.content.includes(filter))
+  });
+
+  console.log( Object.isFrozen(anecdotes) );
+
+  /* A frozen object can no longer be changed but copy */
+  let checkedAnecdotes =  [ ...anecdotes ]
+  checkedAnecdotes.sort((a, b) => b.votes - a.votes)
+
   return(
     <ul>
-      {anecdotes.map(anecdote =>
+      {checkedAnecdotes.map(anecdote =>
         <Anecdote
-          key={anecdote.id}
-          anecdote={anecdote}
-          handleClick={() => dispatch(handleVote(anecdote.id))}
+          key={ anecdote.id }
+          anecdote={ anecdote }
+          handleClick={ () => dispatch(handleVote( anecdote.id )) }
         />
       )}
     </ul>
