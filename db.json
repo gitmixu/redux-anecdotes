@@ -1,0 +1,19 @@
+{
+  "anecdotes": [
+    {
+      "content": "reducer defines how redux store works",
+      "votes": 3,
+      "id": 1
+    },
+    {
+      "content": "state of store can contain any data",
+      "votes": 1,
+      "id": 2
+    },
+    {
+      "content": "redux is fun",
+      "votes": 0,
+      "id": 3
+    }
+  ]
+}

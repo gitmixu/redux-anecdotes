@@ -1,3 +1,5 @@
+import { notificationMessage } from '../reducers/notificationReducer'
+
 const Notification = ( message ) => {
 
   ! message
